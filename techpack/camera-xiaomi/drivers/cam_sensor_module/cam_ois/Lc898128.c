@@ -724,9 +724,9 @@ uint8_t PmemUpdate128(struct cam_ois_ctrl_t *o_ctrl, uint8_t fw_type)
 		return -EINVAL;
 	}
 	if (fw_type == 0)
-		scnprintf(fw_name, 32, "%s.prog", o_ctrl->ois_name);
+		snprintf(fw_name, 32, "%s.prog", o_ctrl->ois_name);
 	else if (fw_type == 1)
-		scnprintf(fw_name, 32, "%s.coeff", o_ctrl->ois_name);
+		snprintf(fw_name, 32, "%s.coeff", o_ctrl->ois_name);
 //--------------------------------------------------------------------------------
 // 1. Write updata code to Pmem
 //--------------------------------------------------------------------------------
@@ -798,7 +798,7 @@ uint8_t ProgramFlash128_LongBurst(struct cam_ois_ctrl_t *o_ctrl)
 	uint8_t UcOddEvn = 0;
 	const uint8_t *NcFromVal = NULL;//BURST_LENGTH_FC;
 	const uint8_t *NcFromVal1st = NULL;//ptr->FromCode;
-	scnprintf(fw_name, 32, "%s.mem", o_ctrl->ois_name);
+	snprintf(fw_name, 32, "%s.mem", o_ctrl->ois_name);
 
 	/* Load FW */
 	rc = request_firmware(&fw, fw_name, dev);
@@ -964,7 +964,7 @@ uint8_t ProgramFlash128_Standard(struct cam_ois_ctrl_t *o_ctrl)
 	const uint8_t *NcFromVal1st = NULL;//ptr->FromCode;
 	uint8_t UcOddEvn;
 
-	scnprintf(fw_name, 32, "%s.mem", o_ctrl->ois_name);
+	snprintf(fw_name, 32, "%s.mem", o_ctrl->ois_name);
 
 	/* Load FW */
 	rc = request_firmware(&fw, fw_name, dev);

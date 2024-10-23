@@ -81,7 +81,7 @@ static int get_cdm_index_by_id(char *identifier,
 
 	CAM_DBG(CAM_CDM, "Looking for HW id of =%s and index=%d",
 		identifier, cell_index);
-	scnprintf(client_name, sizeof(client_name), "%s", identifier);
+	snprintf(client_name, sizeof(client_name), "%s", identifier);
 	CAM_DBG(CAM_CDM, "Looking for HW id of %s count:%d", client_name,
 		cdm_mgr.cdm_count);
 	mutex_lock(&cam_cdm_mgr_lock);
